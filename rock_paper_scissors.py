@@ -10,7 +10,7 @@ score_computer = 0
 while True:
 
     # Player move logic
-    player_input = input("Choose [R]ock, [P]aper or [S]cissors: ")
+    player_input = input("\033[0;0mChoose [R]ock, [P]aper or [S]cissors: ")
 
     if player_input.upper() == 'R':
         player_move = rock
@@ -19,7 +19,7 @@ while True:
     elif player_input.upper() == 'S':
         player_move = scissors
     else:
-        print("\033[1;31Invalid Input. Try again...")
+        print("\033[1;31mInvalid Input. Try again...")
         continue
 
     # Computer move logic
@@ -52,14 +52,20 @@ while True:
         score_computer += 3
 
     # Restart or quit the game (print final result if quit)
-    end_input = input("\033[0;0mWould you like to play more?\nType [Y] to play again or [N] to quit: ")
-    if end_input.upper() == 'N':
-        if score_player < 0:
-            score_player = 0
-        if score_computer < 0:
-            score_computer = 0
-        print(f"Final score is:")
-        print(f"\033[1;34mPlayer - {score_player} points")  # 34 is blue
-        print(f"Computer - {score_computer} points")
-        print("\033[0;0mThank you for playing!")
-        exit()
+    while True:
+        end_input = input("\033[0;0mWould you like to play more?\nType [Y] to play again or [N] to quit: ")
+        if end_input.upper() == 'N':
+            if score_player < 0:
+                score_player = 0
+            if score_computer < 0:
+                score_computer = 0
+            print(f"Final score is:")
+            print(f"\033[1;34mPlayer - {score_player} points")  # 34 is blue
+            print(f"Computer - {score_computer} points")
+            print("\033[0;0mThank you for playing!")
+            exit()
+        elif end_input.upper() == 'Y':
+            break
+        else:
+            print("\033[1;31mInvalid Input!")
+            continue
