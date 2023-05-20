@@ -3,6 +3,8 @@ from random import randint
 rock = 'Rock'
 paper = 'Paper'
 scissors = 'Scissors'
+score_player = 0
+score_computer = 0
 
 
 while True:
@@ -30,7 +32,7 @@ while True:
     else:
         computer_move = scissors
 
-    # Player vs Computer logic and output
+    # Player vs Computer logic and output plus score logic
     print(f"\033[0;36mYou chose: {player_move}")  # 36 is cyan
     print(f"\033[0;36mYour opponent chose: {computer_move}")
 
@@ -38,13 +40,26 @@ while True:
             (player_move == paper and computer_move == rock) or \
             (player_move == scissors and computer_move == paper):
         print("\033[1;32mYou win!")  # 32 is green
+        score_player += 3
+        score_computer -= 1
     elif player_move == computer_move:
         print("\033[1;33mDraw!")  # 33 is yellow
+        score_player += 1
+        score_computer += 1
     else:
         print("\033[1;31mYou lose!")  # 31 is red
+        score_player -= 1
+        score_computer += 3
 
-    # Restart or quit the game
+    # Restart or quit the game (print final result if quit)
     end_input = input("\033[0;0mWould you like to play more?\nType [Y] to play again or [N] to quit: ")
     if end_input.upper() == 'N':
-        print("Thank you for playing!")
+        if score_player < 0:
+            score_player = 0
+        if score_computer < 0:
+            score_computer = 0
+        print(f"Final score is:")
+        print(f"\033[1;34mPlayer - {score_player} points")  # 34 is blue
+        print(f"Computer - {score_computer} points")
+        print("\033[0;0mThank you for playing!")
         exit()
