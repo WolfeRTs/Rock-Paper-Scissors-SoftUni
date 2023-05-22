@@ -49,4 +49,4 @@ The player is asked if they would like to **continue playing** or **end the game
 
 **Link to the source code** - [Source code](rock_paper_scissors.py)
 
-**Replit live demo** - https://replit.com/@WolfeRTs/rockpaperscissors#main.py
+**Replit live demo** - [Play "Rock Paper Scissors"](https://replit.com/@WolfeRTs/rockpaperscissors#main.py)
