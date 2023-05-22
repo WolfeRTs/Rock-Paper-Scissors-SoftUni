@@ -35,7 +35,7 @@ After the player has chosen a move, the computer randomly picks a move (using th
 Depending on the moves of both parties, there are three possible outcomes, each connected with a scoring system as well:
 * Player wins - the *player* gets **3 points** and the *computer* loses **1 point**
 * Draw - both participants get **1 point**
-* Computer wins - the *player* loses **1 point** and the *computer* wins **3 points**
+* Computer wins - the *player* loses **1 point** and the *computer* gets **3 points**
 
 ### Restart or Quit options
 
